@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Sign Up</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  background:#0f172a;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Main Card */
+.container{
+  width:380px;
+  background:#1e293b;
+  border-radius:16px;
+  padding:30px;
+  box-shadow:0 20px 40px rgba(0,0,0,.6);
+  text-align:center;
+}
+
+/* Logo */
+.logo{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:15px;
+  border:3px solid #38bdf8;
+}
+
+/* Title */
+h2{
+  color:white;
+  margin-bottom:20px;
+}
+
+/* Tabs */
+.tabs{
+  display:flex;
+  margin-bottom:25px;
+}
+
+.tabs button{
+  flex:1;
+  padding:10px;
+  border:none;
+  background:#334155;
+  color:#cbd5f5;
+  cursor:pointer;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.tabs button.active{
+  background:#38bdf8;
+  color:#0f172a;
+}
+
+/* Inputs */
+input{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:8px;
+  border:none;
+  outline:none;
+  background:#0f172a;
+  color:white;
+  font-size:15px;
+}
+
+/* Message */
+.msg{
+  color:#fca5a5;
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+/* Submit Button */
+button.submit{
+  width:100%;
+  padding:12px;
+  border-radius:30px;
+  border:none;
+  background:#38bdf8;
+  color:#0f172a;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.3s;
+}
+
+button.submit:hover{
+  background:#0ea5e9;
+  transform:translateY(-2px);
+}
+
+/*Out*/
+a{
+  text-decoration: none;
+  color: #0ea5e9;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LOGO -->
+  <img src="logo.png" alt="Logo" class="logo">
+
+  <h2 id="title">Sign Up</h2>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button id="signupTab" class="active" type="button" onclick="showSignup()">Sign Up</button>
+    <button id="loginTab" type="button" onclick="showLogin()">Log In</button>
+  </div>
+
+  <!-- MESSAGE -->
+  <p class="msg" id="msg"></p>
+
+  <!-- INPUTS -->
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+
+  <!--Stay logged out-->
+  <a href="home.html">Stay logged out</a><br><br>
+
+  <!-- ACTION BUTTON -->
+  <button type="button" class="submit" onclick="handleAction()">Continue</button>
+
+</div>
+
+<script>
+let mode = "signup";
+
+function showSignup(){
+  mode = "signup";
+  document.getElementById("title").innerText = "Sign Up";
+  document.getElementById("signupTab").classList.add("active");
+  document.getElementById("loginTab").classList.remove("active");
+  document.getElementById("msg").innerText = "";
+}
+
+function showLogin(){
+  mode = "login";
+  document.getElementById("title").innerText = "Log In";
+  document.getElementById("loginTab").classList.add("active");
+  document.getElementById("signupTab").classList.remove("active");
+  document.getElementById("msg").innerText = "";
+}
+
+function handleAction(){
+  let user = document.getElementById("username").value.trim();
+  let pass = document.getElementById("password").value.trim();
+  let msg = document.getElementById("msg");
+
+  if(user === "" || pass === ""){
+    msg.innerText = "All fields are required";
+    return;
+  }
+
+  if(mode === "signup"){
+    localStorage.setItem("user", user);
+    localStorage.setItem("pass", pass);
+    alert("Signup successful!");
+    window.location.href = "home1.html";
+  } 
+  else {
+    let storedUser = localStorage.getItem("user");
+    let storedPass = localStorage.getItem("pass");
+
+    if(storedUser === null || storedPass === null){
+      msg.innerText = "No account found. Please Sign Up first.";
+      return;
+    }
+
+    if(user === storedUser && pass === storedPass){
+      alert("Login successful!");
+      window.location.href = "home1.html";
+    } else {
+      msg.innerText = "Invalid username or password";
+    }
+  }
+}
+</script>
+
+</body>
+</html>

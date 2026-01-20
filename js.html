@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+    <p id="count" style="font-size: 40px;">0</p>
+    <button onclick="increse_count()">+</button>
+    <button onclick="decrease_count()">-</button>
+    <button onclick="reset()">Reset</button>
+    <button onclick="save()">Save</button>
+    <button onclick="load()">Load</button>
+    <script>
+        let count = 0;
+        
+        function update_count(){
+            document.getElementById("count").innerHTML= count;
+        }
+        function increse_count(){
+            count++;
+            update_count();
+        }
+        function decrease_count(){
+            count--;
+            update_count();
+        }
+        function reset(){
+            count= 0;
+            update_count();
+        }
+        function save(){
+            localStorage.setItem("count", count);
+        }
+        function load(){
+            let saved = localStorage.getItem("count");
+            if (saved !== null){
+                count = Number(saved);
+            }
+            update_count();
+        }
+    </script>
+</body>
+</html>

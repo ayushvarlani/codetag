@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TechWave | Innovate Faster</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI", sans-serif;
+}
+
+body{
+  background:#111827;
+  color:white;
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 10%;
+  background:rgba(2,6,23,0.9);
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(10px);
+  z-index:100;
+}
+
+nav h2{
+  color:#38bdf8;
+}
+
+nav a{
+  color:#9ca3af;
+  margin-left:25px;
+  text-decoration:none;
+  font-weight:500;
+}
+
+nav a:hover{
+  color:#38bdf8;
+}
+
+/* HERO */
+.hero{
+  height:90vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 10%;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:3.2rem;
+  margin-bottom:20px;
+}
+
+.hero span{
+  color:#38bdf8;
+}
+
+.hero p{
+  color:#9ca3af;
+  max-width:650px;
+  margin:auto;
+  font-size:1.1rem;
+}
+
+.hero button{
+  margin-top:30px;
+  padding:14px 36px;
+  border-radius:40px;
+  border:none;
+  background:#38bdf8;
+  color:#111827;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.hero button:hover{
+  background:#0ea5e9;
+  transform:translateY(-2px);
+}
+
+/* CTA */
+.cta{
+  background: rgb(25, 99, 109);
+  padding:70px 10%;
+  text-align:center;
+  color:#111827;
+}
+
+.cta h2{
+  font-size:2rem;
+  margin-bottom:15px;
+}
+
+.cta p{
+  margin-bottom:25px;
+}
+
+.cta button{
+  padding:14px 36px;
+  border:none;
+  border-radius:40px;
+  font-weight:bold;
+  cursor:pointer;
+  background: #111827;
+  color: #b1a6a6;
+}
+
+/* FOOTER */
+footer{
+  background:#020617;
+  padding:30px;
+  text-align:center;
+  color:#9ca3af;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h2>TechWave</h2>
+  <div>
+    <a href="home1.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1 class="hero-title">
+      Powering Innovation with <span>TechWave</span>
+    </h1>
+    <p class="hero-text">
+      TechWave helps startups and enterprises build scalable, secure,
+      and high-performance digital products.
+    </p>
+    <button class="hero-btn">Get Started</button>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready to Build Something Amazing?</h2>
+  <p>Join companies that trust TechWave for digital innovation.</p>
+  <button>Start Your Project</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 TechWave Inc. All rights reserved.
+</footer>
+
+<!-- GSAP ANIMATIONS -->
+<script>
+gsap.from(".hero-title",{y:80,opacity:0,duration:1});
+gsap.from(".hero-text",{y:50,opacity:0,delay:0.3});
+gsap.from(".hero-btn",{y:20,opacity:0.5,delay:0.1});
+
+gsap.from(".card",{
+  scrollTrigger:".features",
+  opacity:0,
+  y:60,
+  stagger:0.2
+});
+
+gsap.from(".cta",{
+  scrollTrigger:".cta",
+  opacity:0,
+  scale:0.9
+});
+</script>
+
+</body>
+</html>

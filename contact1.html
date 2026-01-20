@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | TechWave</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #111827;
+      color: #ffffff;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background: #020617;
+    }
+
+    nav h2 {
+      color: #38bdf8;
+    }
+
+    nav a {
+      color: #9ca3af;
+      margin-left: 25px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    /* CONTACT SECTION */
+    .contact-section {
+      padding: 80px 10%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-info h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      color: #9ca3af;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .info-box {
+      margin-bottom: 20px;
+    }
+
+    .info-box h4 {
+      color: #38bdf8;
+      margin-bottom: 5px;
+    }
+
+    /* FORM */
+    .contact-form {
+      background: #1f2937;
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .contact-form h2 {
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      background: #111827;
+      color: white;
+      font-size: 15px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #9ca3af;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 30px;
+      border: none;
+      background: #38bdf8;
+      color: #111827;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: #020617;
+      padding: 30px;
+      text-align: center;
+      color: #9ca3af;
+      margin-top: 60px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .contact-section {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <h2>TechWave</h2>
+  <div>
+    <a href="home.html">Home</a>
+    <a href="features1.html">Features</a>
+    <a href="contact1.html">Contact</a>
+    <a href="sign.html">Login</a>
+  </div>
+</nav>
+
+<!-- CONTACT -->
+<section class="contact-section">
+
+  <!-- LEFT INFO -->
+  <div class="contact-info">
+    <h1 class="title">Let's Build Something Great</h1>
+    <p class="subtitle">
+      Have a project in mind or want to learn how TechWave can help your business?
+      Our team is ready to assist you.
+    </p>
+
+    <div class="info-box">
+      <h4>📍 Office</h4>
+      <p>Bengaluru, India</p>
+    </div>
+
+    <div class="info-box">
+      <h4>📧 Email</h4>
+      <p>TechWave778@gmail.com</p>
+    </div>
+
+    <div class="info-box">
+      <h4>📞 Phone</h4>
+      <p>+91 7043685847</p>
+    </div>
+  </div>
+
+  <!-- RIGHT FORM -->
+  <div class="contact-form">
+    <h2>Send us a message</h2>
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email Address">
+    <input type="text" placeholder="Company (optional)">
+    <textarea rows="4" placeholder="Tell us about your project"></textarea>
+    <button>Submit</button>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 TechWave Inc. All rights reserved.
+</footer>
+
+<!-- GSAP ANIMATIONS -->
+<script>
+  gsap.from(".title", {
+    y: 50,
+    opacity: 0,
+    duration: 1
+  });
+
+  gsap.from(".subtitle", {
+    y: 40,
+    opacity: 0,
+    delay: 0.2
+  });
+
+  gsap.from(".info-box", {
+    opacity: 0,
+    y: 30,
+    duration: 0.8,
+    stagger: 0.2,
+    delay: 0.4
+  });
+
+  gsap.from(".contact-form", {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    delay: 0.5
+  });
+</script>
+
+</body>
+</html>
